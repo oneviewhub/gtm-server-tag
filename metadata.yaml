@@ -1,0 +1,7 @@
+homepage: "https://oneviewhub.com"
+documentation: "https://docs.oneviewhub.com"
+versions:
+  # Latest version
+  - sha: 893f1a574c1a5854236205b3585a0f2453ca7f94
+    changeNotes: Initial release.
+  # Older versions
