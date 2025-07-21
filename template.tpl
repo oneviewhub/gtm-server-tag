@@ -1,12 +1,4 @@
-﻿___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
-___INFO___
+﻿___INFO___
 
 {
   "type": "TAG",
@@ -382,7 +374,7 @@ function handleAlias(alias, result) {
 			output = noHash(alias.value);
 			if (output !== undefined) {
 				result.push({
-					alias_type: 'user',
+					alias_type: 'client',
 					anonymous_client_id: alias.value,
 				});
 			}
