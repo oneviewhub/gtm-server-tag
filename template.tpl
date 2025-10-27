@@ -10,9 +10,8 @@ ___INFO___
 
 {
   "type": "TAG",
-  "id": "cvt_temp_public_id",
+  "id": "cvt_MQ72P",
   "version": 1,
-  "securityGroups": [],
   "displayName": "OneView Server Tag",
   "categories": [
     "ATTRIBUTION",
@@ -20,14 +19,15 @@ ___INFO___
     "DATA_WAREHOUSING"
   ],
   "brand": {
-    "displayName": "OneView",
+    "displayName": "oneviewhub",
     "thumbnail": "data:image/png;base64,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\u003d\u003d",
     "id": "github.com_oneviewhub"
   },
   "description": "Send events to OneView as a Server-side Tag Manager® Backend Source",
   "containerContexts": [
     "SERVER"
-  ]
+  ],
+  "securityGroups": []
 }
 
 
@@ -115,51 +115,89 @@ ___TEMPLATE_PARAMETERS___
         "alwaysInSummary": false
       }
     ],
-    "help": "If you use GTM \u003ca href\u003d\"https://developers.google.com/tag-platform/tag-manager/server-side/common-event-data\"\u003eCommon Event Data\u003c/a\u003e (e.g. when you use a \u003ci\u003eGoogle Analytics: GA4 Client\u003c/i\u003e), all identifiers are included automatically. \u003cbr/\u003e\u003cbr/\u003e🇪🇺 \u003cstrong\u003eAll PIIs are automatically hashed and omitted.\u003c/strong\u003e"
+    "help": "All identifiers in this container\u0027s \u003ca href\u003d\"https://developers.google.com/tag-platform/tag-manager/server-side/common-event-data\"\u003eCommon Event Data\u003c/a\u003e are automatically included."
   },
   {
     "type": "GROUP",
     "name": "consent",
     "displayName": "Consent Settings",
-    "groupStyle": "NO_ZIPPY",
+    "groupStyle": "ZIPPY_CLOSED",
     "subParams": [
       {
         "type": "SELECT",
-        "name": "adUserData",
-        "displayName": "Consent (ad_user_data)",
+        "name": "analyticsStorage",
+        "displayName": "analytics_storage",
         "macrosInSelect": true,
         "selectItems": [
           {
             "value": true,
-            "displayValue": "🟢 Granted"
+            "displayValue": "✅ Granted (true)"
           },
           {
             "value": false,
-            "displayValue": "🔴 Denied"
+            "displayValue": "❌ Denied (false)"
           }
         ],
         "simpleValueType": true,
-        "help": "Sets boolean user consent for \u003cstrong\u003esending their hashed PII\u003c/strong\u003e to your Media Partners\u003cbr/\u003e\u003cbr/\u003e🇪🇺 \u003cstrong\u003eConsent is denied by design, and by default.\u003c/strong\u003e",
-        "notSetText": "Unspecified"
+        "help": "✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Event is processed by OneView.\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Event will be discarded by OneView.",
+        "notSetText": "Inherit"
+      },
+      {
+        "type": "SELECT",
+        "name": "adStorage",
+        "displayName": "ad_storage",
+        "macrosInSelect": true,
+        "selectItems": [
+          {
+            "value": true,
+            "displayValue": "✅ Granted (true)"
+          },
+          {
+            "value": false,
+            "displayValue": "❌ Denied (false)"
+          }
+        ],
+        "simpleValueType": true,
+        "help": "If this event is a Conversion Event:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Conversion API will send data to your Media Partners.\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Conversion API will not fire, and your Media Partners will not receive data about this conversion.",
+        "notSetText": "Inherit"
+      },
+      {
+        "type": "SELECT",
+        "name": "adUserData",
+        "displayName": "ad_user_data",
+        "macrosInSelect": true,
+        "selectItems": [
+          {
+            "value": true,
+            "displayValue": "✅ Granted (true)"
+          },
+          {
+            "value": false,
+            "displayValue": "❌ Denied (false)"
+          }
+        ],
+        "simpleValueType": true,
+        "help": "If this event is a Conversion Event, and Conversion API supports enrichment with PII (\"\u003ci\u003eEnhanced Conversions\u003c/i\u003e\"):\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: PII are added to Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: PII are not included to Conversion API",
+        "notSetText": "Inherit"
       },
       {
         "type": "SELECT",
         "name": "adPersonalization",
-        "displayName": "Consent (ad_personalization)",
+        "displayName": "ad_personalization",
         "macrosInSelect": true,
         "selectItems": [
           {
             "value": true,
-            "displayValue": "🟢 Granted"
+            "displayValue": "✅ Granted (true)"
           },
           {
             "value": false,
-            "displayValue": "🔴 Denied"
+            "displayValue": "❌ Denied (false)"
           }
         ],
         "simpleValueType": true,
-        "help": "Sets boolean user consent for \u003cstrong\u003epersonalized advertising\u003c/strong\u003e to your Media Partners.\u003cbr/\u003e\u003cbr/\u003e🇪🇺 \u003cstrong\u003eConsent is denied by design, and by default.\u003c/strong\u003e",
-        "notSetText": "Unspecified"
+        "help": "If this event is a Conversion Event, and Conversion API supports flag for personalized advertising:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Flag set to true in Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Flag set to false in Conversion API",
+        "notSetText": "Inherit"
       }
     ]
   }
@@ -210,6 +248,8 @@ var postBodyData = {
 		consent: {
 			ad_user_data: handleConsent(data.adUserData, fallbackConsentMode.ad_user_data),
 			ad_personalization: handleConsent(data.adPersonalization, fallbackConsentMode.ad_personalization),
+			analytics_storage: handleConsent(data.analyticsStorage, fallbackConsentMode.analytics_storage),
+			ad_storage: handleConsent(data.adStorage, fallbackConsentMode.ad_storage),
 		},
 		identifiers: (tableData => {
 			if (!tableData) return [];
@@ -405,6 +445,9 @@ function handleConsent(explicitConsent, fallbackConsent) {
 
 	if (type === 'string') {
 		var consentString = explicitConsent.trim().toLowerCase();
+      	if (consentString === 'undefined' || consentString === '' || consentString === 'inherit' || consentString === 'null') {
+			return fallbackConsent;
+		}
 		if (consentString === 'true' || consentString === 'granted') {
 			return true;
 		}

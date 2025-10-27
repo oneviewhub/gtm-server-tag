@@ -112,6 +112,12 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ## 🏷️ Changelog
 
+### v1.1.0
+- Ability to set explicit `ad_storage` and `analytics_storage` permissions from UI
+
+### v1.0.1
+- Fixed mismatched hashes
+
 ### v1.0.0
 - Initial release
 - Support for Google Consent Mode v1 & v2
