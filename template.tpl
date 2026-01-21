@@ -115,7 +115,7 @@ ___TEMPLATE_PARAMETERS___
         "alwaysInSummary": false
       }
     ],
-    "help": "All identifiers in this container\u0027s \u003ca href\u003d\"https://developers.google.com/tag-platform/tag-manager/server-side/common-event-data\"\u003eCommon Event Data\u003c/a\u003e are automatically included."
+    "help": "All identifiers in this container\u0027s \u003ca href\u003d\"https://developers.google.com/tag-platform/tag-manager/server-side/common-event-data\"\u003eCommon Event Data\u003c/a\u003e are automatically included. Use this section to manually set User Identifiers.\n\u003cbr/\u003e\n\u003cbr/\u003e\n\u003cstrong\u003eImportant:\u003c/strong\u003e Do not hash data yourself, as this Tag handles both data formatting and hashing for you. Already hashed data will be discarded. You can check the hashed result in GTM Preview mode."
   },
   {
     "type": "GROUP",
@@ -139,7 +139,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "simpleValueType": true,
-        "help": "✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Event is processed by OneView.\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Event will be discarded by OneView.",
+        "help": "✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Event is processed by OneView.\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Event will be discarded by OneView.\u003cbr/\u003e\n👉 \u003cstrong\u003eInherit\u003c/strong\u003e: Will use Google Consent Mode, if available.",
         "notSetText": "Inherit"
       },
       {
@@ -158,7 +158,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "simpleValueType": true,
-        "help": "If this event is a Conversion Event:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Conversion API will send data to your Media Partners.\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Conversion API will not fire, and your Media Partners will not receive data about this conversion.",
+        "help": "If this event is a Conversion Event:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Conversion API will send data to your Media Partners.\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Conversion API will not fire, and your Media Partners will not receive data about this conversion.\u003cbr/\u003e\n👉 \u003cstrong\u003eInherit\u003c/strong\u003e: Will use Google Consent Mode, if available.",
         "notSetText": "Inherit"
       },
       {
@@ -177,7 +177,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "simpleValueType": true,
-        "help": "If this event is a Conversion Event, and Conversion API supports enrichment with PII (\"\u003ci\u003eEnhanced Conversions\u003c/i\u003e\"):\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: PII are added to Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: PII are not included to Conversion API",
+        "help": "If this event is a Conversion Event, and Conversion API supports enrichment with PII (\"\u003ci\u003eEnhanced Conversions\u003c/i\u003e\"):\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: PII are added to Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: PII are not included to Conversion API\u003cbr/\u003e\n👉 \u003cstrong\u003eInherit\u003c/strong\u003e: Will use Google Consent Mode, if available.",
         "notSetText": "Inherit"
       },
       {
@@ -196,8 +196,27 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "simpleValueType": true,
-        "help": "If this event is a Conversion Event, and Conversion API supports flag for personalized advertising:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Flag set to true in Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Flag set to false in Conversion API",
+        "help": "If this event is a Conversion Event, and Conversion API supports flag for personalized advertising:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Flag set to true in Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Flag set to false in Conversion API\u003cbr/\u003e\n👉 \u003cstrong\u003eInherit\u003c/strong\u003e: Will use Google Consent Mode, if available.",
         "notSetText": "Inherit"
+      },
+      {
+        "type": "TEXT",
+        "name": "visitorRegion",
+        "displayName": "Visitor Region",
+        "simpleValueType": true,
+        "help": "Use the \u003cstrong\u003e\u003ca href\u003d\"https://developers.google.com/tag-platform/tag-manager/server-side/enable-region-specific-settings\"\u003eVisitor Region\u003c/a\u003e\u003c/strong\u003e variable type for this field.\u003cbr/\u003e\u003cbr/\u003eOneView uses this variable to detect the \u003ca href\u003d\"https://en.wikipedia.org/wiki/ISO_3166-2\"\u003eISO 3166-2\u003c/a\u003e region of your events, so it can apply the correct privacy and compliance rules for traffic from that region.",
+        "valueValidators": [
+          {
+            "type": "NON_EMPTY"
+          },
+          {
+            "type": "REGEX",
+            "args": [
+              "^[A-Z]{2}-[A-Z0-9]{1,3}$"
+            ],
+            "errorMessage": "Use the \"Visitor Region\" variable or enter a valid ISO 3166-2 code"
+          }
+        ]
       }
     ]
   }
@@ -220,7 +239,7 @@ const testRegex = require('testRegex');
 const containerVersion = getContainerVersion();
 const isLoggingEnabled = containerVersion.debugMode;
 
-const EMAIL_REGEX = createRegex('[a-zA-Z0-9_.+\\-]+[\\x40][a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}', '');
+const EMAIL_REGEX = createRegex('(?:[a-z0-9!#$%&\'*+/=?^\\`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_\\`{|}~-]+)*|"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])', 'i');
 const PHONE_REGEX = createRegex('^\\+[1-9]\\d{1,14}$', '');
 const SHA256_REGEX = createRegex('^[a-fA-F0-9]{64}$', '');
 
@@ -251,13 +270,14 @@ var postBodyData = {
 			analytics_storage: handleConsent(data.analyticsStorage, fallbackConsentMode.analytics_storage),
 			ad_storage: handleConsent(data.adStorage, fallbackConsentMode.ad_storage),
 		},
+		visitor_region: data.visitorRegion,
 		identifiers: (tableData => {
 			if (!tableData) return [];
 			var result = [],
 				i;
 	
 			for (i = 0; i < tableData.length; i++) {
-				handleAlias(tableData[i], result);
+				handleTableAlias(tableData[i], result);
 			}
 	
 			return result;
@@ -271,7 +291,8 @@ var postBodyData = {
 
 var user = postBodyData.event_payload.user_data;
 if (user) {
-	user.sha256_email_address = hashEmail(user.email_address);
+	user.sha256_email_address = hashEmail(user.email_address, 'STANDARD');
+	user.sha256_email_address_canonical = hashEmail(user.email_address, 'CANONICAL');
 	user.sha256_phone_number = hashPhone(user.phone_number, 'E.164');
 	user.sha256_phone_number_digits = hashPhone(user.phone_number, 'NUMERIC');
 
@@ -353,9 +374,20 @@ sendHttpRequest(
 // Hashing Helpers
 // ----------------------------
 
-function hashEmail(email) {
-	if (getType(email) !== 'string' || !testRegex(EMAIL_REGEX, email)) return undefined;
-	return sha256Sync(email.trim().toLowerCase(), { outputEncoding: 'hex' });
+function hashEmail(email, format) {
+    if (getType(email) !== 'string' || !testRegex(EMAIL_REGEX, email)) return undefined;
+    
+    const matchedEmail = email.match(EMAIL_REGEX).toString();
+    const standardEmail = matchedEmail.trim().toLowerCase();
+
+    const standardEmailComps = standardEmail.split('@');
+    const canonicalEmail = standardEmailComps[0]
+      .replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
+      .replace(createRegex('[^a-z0-9]', 'gi'), '') // Stripping non-alphanumeric
+      .concat('@')
+      .concat(standardEmailComps[1]);
+
+    return sha256Sync(format === 'CANONICAL' ? canonicalEmail : standardEmail, { outputEncoding: 'hex' });
 }
 
 function hashPhone(phone, format) {
@@ -373,16 +405,20 @@ function noHash(value) {
 	return value;
 }
 
-function handleAlias(alias, result) {
+function handleTableAlias(alias, result) {
 	var output;
 
 	switch (alias.key) {
 		case 'email':
-			output = hashEmail(alias.value);
+			output = hashEmail(alias.value, 'STANDARD');
 			if (output !== undefined) {
 				result.push({
 					alias_type: 'email',
 					hashed_email: output,
+				});
+				result.push({
+					alias_type: 'email_canonical',
+					hashed_email: hashEmail(alias.value, 'CANONICAL'),
 				});
 			}
 			break;

@@ -13,24 +13,11 @@ This template functions as a **Server Tag** within your GTM Server-side containe
 
 ## 🛠️ Installation
 
-### From GTM Gallery (Recommended)
-
 1. Open your **GTM Server-side container** (not web container)
 2. Navigate to **Templates** > **Tag Templates**
 3. Click **Search Gallery**
 4. Search for "OneView Server Tag"
 5. Click **Add to workspace**
-
-### Manual Installation
-
-> [!WARNING]  
-> You will not receive automatic updates if you choose a manual install
-
-1. Download the template file from this repository
-2. In your GTM Server container, go to **Templates** > **Tag Templates**
-3. Click **New** > **Import**
-4. Select the downloaded template file
-5. Save the template
 
 ## ⚙️ Configuration
 
@@ -111,6 +98,11 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 - **Support**: [OneView Support](https://docs.oneviewhub.com)
 
 ## 🏷️ Changelog
+
+### v1.2.0
+- Added support for visitor region
+- Added advanced email parsing to properly format edge cases
+- Updated UI descriptions
 
 ### v1.1.0
 - Ability to set explicit `ad_storage` and `analytics_storage` permissions from UI
