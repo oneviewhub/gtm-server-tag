@@ -1,9 +1,11 @@
 homepage: "https://oneviewhub.com"
 documentation: "https://docs.oneviewhub.com"
 versions:
+  - sha: ad639f1dcceac3517c0c26395a921a833bd3cedc
+    changeNotes: Added visitor region field and improved email parsing.
+   # Older versions
   - sha: 543d1a580598fb79092e2a4d032724838aca9152
     changeNotes: Added granular consent settings.
-  # Older versions
   - sha: 38bd9a6a78bcbe183560a4cf0d3d52bd96f2e53e
     changeNotes: Hashing mismatch fix.
   - sha: 893f1a574c1a5854236205b3585a0f2453ca7f94
