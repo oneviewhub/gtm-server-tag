@@ -1,12 +1,4 @@
-﻿___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
-___INFO___
+﻿___INFO___
 
 {
   "type": "TAG",
@@ -415,10 +407,7 @@ function handleTableAlias(alias, result) {
 				result.push({
 					alias_type: 'email',
 					hashed_email: output,
-				});
-				result.push({
-					alias_type: 'email_canonical',
-					hashed_email: hashEmail(alias.value, 'CANONICAL'),
+          hashed_email_canonical: hashEmail(alias.value, 'CANONICAL'),
 				});
 			}
 			break;
