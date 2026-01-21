@@ -99,12 +99,9 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ## 🏷️ Changelog
 
-### v1.2.1
-- Fixed email canonicalization bug
-
-### v1.2.0
-- Added support for visitor region
+### v1.2.2
 - Added advanced email parsing to properly format edge cases
+- Fixed email canonicalization bug
 - Updated UI descriptions
 
 ### v1.1.0

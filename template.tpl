@@ -190,25 +190,6 @@ ___TEMPLATE_PARAMETERS___
         "simpleValueType": true,
         "help": "If this event is a Conversion Event, and Conversion API supports flag for personalized advertising:\u003cbr/\u003e\u003cbr/\u003e\n✅ \u003cstrong\u003eGranted\u003c/strong\u003e: Flag set to true in Conversion API\u003cbr/\u003e\n❌ \u003cstrong\u003eDenied\u003c/strong\u003e: Flag set to false in Conversion API\u003cbr/\u003e\n👉 \u003cstrong\u003eInherit\u003c/strong\u003e: Will use Google Consent Mode, if available.",
         "notSetText": "Inherit"
-      },
-      {
-        "type": "TEXT",
-        "name": "visitorRegion",
-        "displayName": "Visitor Region",
-        "simpleValueType": true,
-        "help": "Use the \u003cstrong\u003e\u003ca href\u003d\"https://developers.google.com/tag-platform/tag-manager/server-side/enable-region-specific-settings\"\u003eVisitor Region\u003c/a\u003e\u003c/strong\u003e variable type for this field.\u003cbr/\u003e\u003cbr/\u003eOneView uses this variable to detect the \u003ca href\u003d\"https://en.wikipedia.org/wiki/ISO_3166-2\"\u003eISO 3166-2\u003c/a\u003e region of your events, so it can apply the correct privacy and compliance rules for traffic from that region.",
-        "valueValidators": [
-          {
-            "type": "NON_EMPTY"
-          },
-          {
-            "type": "REGEX",
-            "args": [
-              "^[A-Z]{2}-[A-Z0-9]{1,3}$"
-            ],
-            "errorMessage": "Use the \"Visitor Region\" variable or enter a valid ISO 3166-2 code"
-          }
-        ]
       }
     ]
   }
@@ -262,7 +243,6 @@ var postBodyData = {
 			analytics_storage: handleConsent(data.analyticsStorage, fallbackConsentMode.analytics_storage),
 			ad_storage: handleConsent(data.adStorage, fallbackConsentMode.ad_storage),
 		},
-		visitor_region: data.visitorRegion,
 		identifiers: (tableData => {
 			if (!tableData) return [];
 			var result = [],
