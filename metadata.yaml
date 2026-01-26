@@ -1,9 +1,11 @@
 homepage: "https://oneviewhub.com"
 documentation: "https://docs.oneviewhub.com"
 versions:
+  - sha: 116ac44321bab0afb0553e47bf3a5e0da72606ed
+    changeNotes: TOS fix.
+  # Older versions
   - sha: 9de922263917bd4879cf022076c88753650cce63
     changeNotes: Improved visitor region DX.
-  # Older versions
   - sha: df9af773cd527020c290f5cff558ac91bedd368c
     changeNotes: Fixed email canonicalization bug.
   - sha: ad639f1dcceac3517c0c26395a921a833bd3cedc
