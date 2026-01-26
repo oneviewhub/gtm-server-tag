@@ -99,7 +99,7 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ## 🏷️ Changelog
 
-### v1.2.2
+### v1.2.3
 - Added advanced email parsing to properly format edge cases
 - Fixed email canonicalization bug
 - Updated UI descriptions
