@@ -1,5 +1,5 @@
 homepage: "https://oneviewhub.com"
-documentation: "https://docs.oneviewhub.com"
+documentation: "https://oneviewhub.com/docs"
 versions:
   - sha: 116ac44321bab0afb0553e47bf3a5e0da72606ed
     changeNotes: TOS fix.

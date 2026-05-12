@@ -94,10 +94,13 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ## 🆘 Support
 
-- **Documentation**: [OneView Documentation](https://docs.oneviewhub.com)
-- **Support**: [OneView Support](https://docs.oneviewhub.com)
+- **Documentation**: [OneView Documentation](https://oneviewhub.com/docs)
+- **Support**: [OneView Support](https://oneviewhub.com/docs)
 
 ## 🏷️ Changelog
+
+### v2.0.0
+- Updated to use API v2
 
 ### v1.2.3
 - Added advanced email parsing to properly format edge cases
