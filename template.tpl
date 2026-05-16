@@ -613,17 +613,6 @@ function hashEmail(email, format) {
 		const domain = standardEmailComps[1];
 
 		switch (domain) {
-			case 'icloud.com':
-			case 'me.com':
-			case 'mac.com': {
-				const deAliasedEmail = localPart
-					.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
-					.concat('@')
-					.concat('icloud.com');
-				return sha256Sync(deAliasedEmail, {
-					outputEncoding: 'hex'
-				});
-			}
 			case 'gmail.com':
 			case 'googlemail.com': {
 				const canonicalEmailDotless = localPart
@@ -632,18 +621,6 @@ function hashEmail(email, format) {
 					.concat('@')
 					.concat(domain);
 				return sha256Sync(canonicalEmailDotless, {
-					outputEncoding: 'hex'
-				});
-			}
-			case 'protonmail.com':
-			case 'proton.me':
-			case 'pm.me': {
-				const canonicalEmailFlat = localPart
-					.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
-					.replace(createRegex('[._-]', 'g'), '')
-					.concat('@')
-					.concat(domain);
-				return sha256Sync(canonicalEmailFlat, {
 					outputEncoding: 'hex'
 				});
 			}

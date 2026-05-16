@@ -99,7 +99,7 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ## 🏷️ Changelog
 
-### v2.1.0
+### v2.1.1
 - Updated email canonicalization logic
 
 ### v2.0.0
