@@ -420,7 +420,7 @@ if (eventSource !== 'WEB') {
 // Idempotency Key
 // ----------------------------
 
-var idempotencyKey = (function () {
+var idempotencyKey = (function() {
 	if (data.idempotencyKey) {
 		var explicit = makeString(data.idempotencyKey).trim();
 		if (explicit !== '') return explicit;
@@ -428,7 +428,9 @@ var idempotencyKey = (function () {
 
 	var random = makeString(generateRandom(0, 2147483647));
 	var timestamp = makeString(getTimestampMillis());
-	var fingerprint = sha256Sync(JSON.stringify(eventData), { outputEncoding: 'hex' });
+	var fingerprint = sha256Sync(JSON.stringify(eventData), {
+		outputEncoding: 'hex'
+	});
 
 	return random + '#' + timestamp + '#' + fingerprint;
 })();
@@ -509,7 +511,7 @@ if (isLoggingEnabled) {
 
 sendHttpRequest(
 	ENDPOINT,
-	function (statusCode, headers, body) {
+	function(statusCode, headers, body) {
 		if (isLoggingEnabled) {
 			logToConsole(
 				JSON.stringify({
@@ -527,13 +529,12 @@ sendHttpRequest(
 		} else {
 			data.gtmOnFailure();
 		}
-	},
-	{
+	}, {
 		headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + makeString(data.apiKey),
-          'API-Version': API_VERSION,
-        },
+			'Content-Type': 'application/json',
+			'Authorization': 'Bearer ' + makeString(data.apiKey),
+			'API-Version': API_VERSION,
+		},
 		method: 'POST',
 		timeout: TIMEOUT_MS,
 	},
@@ -559,7 +560,6 @@ function buildIdentifiers(tableData) {
 					identifiers.email = {
 						sha256_email: hashedEmail,
 						sha256_canonical: hashEmail(alias.value, 'CANONICAL'),
-                        sha256_canonical_dotless: hashEmail(alias.value, 'DOTLESS'),
 					};
 				}
 				break;
@@ -607,20 +607,55 @@ function hashEmail(email, format) {
 	const standardEmail = matchedEmail.trim().toLowerCase();
 
 	const standardEmailComps = standardEmail.split('@');
-	const canonicalEmail = standardEmailComps[0]
-		.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
-		.concat('@')
-		.concat(standardEmailComps[1]);
-  
-    const canonicalEmailDotless = standardEmailComps[0]
-		.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
-		.replace(createRegex('[^a-z0-9]', 'gi'), '') // Remove all non-alphanumeric characters
-		.concat('@')
-		.concat(standardEmailComps[1]);
 
-    if (format === 'STANDARD') return sha256Sync(standardEmail, { outputEncoding: 'hex' });
-	if (format === 'CANONICAL') return sha256Sync(canonicalEmail, { outputEncoding: 'hex' });
-    return sha256Sync(canonicalEmailDotless, { outputEncoding: 'hex' });
+	if (format === 'CANONICAL') {
+		const localPart = standardEmailComps[0];
+		const domain = standardEmailComps[1];
+
+		switch (domain) {
+			case 'icloud.com':
+			case 'me.com':
+			case 'mac.com': {
+				const deAliasedEmail = localPart
+					.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
+					.concat('@')
+					.concat('icloud.com');
+				return sha256Sync(deAliasedEmail, {
+					outputEncoding: 'hex'
+				});
+			}
+			case 'gmail.com':
+			case 'googlemail.com': {
+				const canonicalEmailDotless = localPart
+					.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
+					.replace(createRegex('\\.', 'g'), '')
+					.concat('@')
+					.concat(domain);
+				return sha256Sync(canonicalEmailDotless, {
+					outputEncoding: 'hex'
+				});
+			}
+			case 'protonmail.com':
+			case 'proton.me':
+			case 'pm.me': {
+				const canonicalEmailFlat = localPart
+					.replace(createRegex('\\+.+', 'gi'), '') // Stripping subaddress
+					.replace(createRegex('[._-]', 'g'), '')
+					.concat('@')
+					.concat(domain);
+				return sha256Sync(canonicalEmailFlat, {
+					outputEncoding: 'hex'
+				});
+			}
+				
+			default: 
+				return undefined;
+		}
+	}
+
+	return sha256Sync(standardEmail, {
+		outputEncoding: 'hex'
+	});
 }
 
 function hashPhone(phone, format) {
@@ -629,12 +664,16 @@ function hashPhone(phone, format) {
 	phone = phone.replace(createRegex('[\\s\\-\\(\\)]', 'g'), '');
 
 	if (!testRegex(PHONE_REGEX, phone)) return undefined;
-	return sha256Sync(format === 'NUMERIC' ? phone.slice(1) : phone, { outputEncoding: 'hex' });
+	return sha256Sync(format === 'NUMERIC' ? phone.slice(1) : phone, {
+		outputEncoding: 'hex'
+	});
 }
 
 function hashName(name) {
 	if (getType(name) !== 'string' || testRegex(SHA256_REGEX, name) || name.trim() === '') return undefined;
-	return sha256Sync(name.trim().toLowerCase(), { outputEncoding: 'hex' });
+	return sha256Sync(name.trim().toLowerCase(), {
+		outputEncoding: 'hex'
+	});
 }
 
 function noHash(value) {
@@ -719,7 +758,7 @@ function extractConsentMode() {
 		};
 	}
 
-	var gcd = (function () {
+	var gcd = (function() {
 		if (getType(gcdLocation1) === 'string' && gcdLocation1 !== '') {
 			return gcdLocation1;
 		} else if (getType(gcdLocation2) === 'string' && gcdLocation2 !== '') {
@@ -762,7 +801,7 @@ function extractConsentMode() {
 	}
 
 	var gcsLocation1 = getEventData('x-ga-gcs');
-	var gcs = (function () {
+	var gcs = (function() {
 		if (getType(gcsLocation1) === 'string' && gcsLocation1 !== '') {
 			return gcsLocation1;
 		} else {
@@ -770,7 +809,7 @@ function extractConsentMode() {
 		}
 	})();
 
-	var output = (function () {
+	var output = (function() {
 		if (getType(gcd) === 'string') {
 			return parseGcdConsentString(gcd);
 		} else if (getType(gcs) === 'string') {
