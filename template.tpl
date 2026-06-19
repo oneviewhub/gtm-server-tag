@@ -1,4 +1,4 @@
-﻿___TERMS_OF_SERVICE___
+___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -66,12 +66,12 @@ ___TEMPLATE_PARAMETERS___
         "macrosInSelect": false,
         "selectItems": [
           {
-            "value": "WEB_GA4",
-            "displayValue": "Web (Google Analytics 4)"
+            "value": "WEB",
+            "displayValue": "Web"
           },
           {
-            "value": "WEB",
-            "displayValue": "Web (Custom)"
+            "value": "WEBAPP",
+            "displayValue": "Web App"
           },
           {
             "value": "SERVER",
@@ -80,7 +80,7 @@ ___TEMPLATE_PARAMETERS___
         ],
         "simpleValueType": true,
         "alwaysInSummary": false,
-        "defaultValue": "WEB_GA4"
+        "defaultValue": "WEB"
       },
       {
         "type": "GROUP",
@@ -134,6 +134,11 @@ ___TEMPLATE_PARAMETERS___
                 "paramName": "eventSource",
                 "paramValue": "WEB",
                 "type": "EQUALS"
+              },
+              {
+                "paramName": "eventSource",
+                "paramValue": "WEBAPP",
+                "type": "EQUALS"
               }
             ],
             "valueValidators": [
@@ -151,6 +156,11 @@ ___TEMPLATE_PARAMETERS___
               {
                 "paramName": "eventSource",
                 "paramValue": "WEB",
+                "type": "EQUALS"
+              },
+              {
+                "paramName": "eventSource",
+                "paramValue": "WEBAPP",
                 "type": "EQUALS"
               }
             ],
@@ -170,6 +180,11 @@ ___TEMPLATE_PARAMETERS___
                 "paramName": "eventSource",
                 "paramValue": "WEB",
                 "type": "EQUALS"
+              },
+              {
+                "paramName": "eventSource",
+                "paramValue": "WEBAPP",
+                "type": "EQUALS"
               }
             ],
             "valueValidators": [
@@ -187,7 +202,7 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "paramName": "eventSource",
-            "paramValue": "WEB_GA4",
+            "paramValue": "WEBAPP",
             "type": "EQUALS"
           }
         ]
@@ -258,7 +273,7 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "paramName": "eventSource",
-            "paramValue": "WEB_GA4",
+            "paramValue": "WEBAPP",
             "type": "EQUALS"
           },
           {
@@ -395,7 +410,7 @@ const OMIT_PLAINTEXT_PII = true;
 // Event Source
 // ----------------------------
 
-var eventSource = makeString(data.eventSource === 'WEB_GA4' ? 'WEB' : data.eventSource);
+var eventSource = makeString(data.eventSource);
 
 // ----------------------------
 // Event Data
@@ -403,12 +418,8 @@ var eventSource = makeString(data.eventSource === 'WEB_GA4' ? 'WEB' : data.event
 
 var eventData = getAllEventData();
 
-if (eventSource !== 'WEB_GA4') {
-	if (data.clientId) eventData.client_id = makeString(data.clientId);
-	if (data.sessionId) eventData.session_id = makeString(data.sessionId);
-}
 
-if (eventSource !== 'WEB') {
+if (eventSource === 'WEB' || eventSource === 'WEBAPP') {
 	if (data.clientId) eventData.client_id = makeString(data.clientId);
 	if (data.sessionId) eventData.session_id = makeString(data.sessionId);
 	if (data.pageLocation) eventData.page_location = makeString(data.pageLocation);
@@ -916,5 +927,3 @@ scenarios:
 ___NOTES___
 
 Created on 06/07/2025, 13:50:44
-
-
