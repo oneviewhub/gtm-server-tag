@@ -1,9 +1,11 @@
 homepage: "https://oneviewhub.com"
 documentation: "https://oneviewhub.com/docs"
 versions:
+  - sha: ef58bde28e37ebf7d28bf93ddf58de3426193167
+    changeNotes: Added WEBAPP event type
+  # Older versions
   - sha: fbf83c2c00c1aedaf206e7b38c1b8c2253a6f62c
     changeNotes: Restricted email canonicalization logic
-  # Older versions
   - sha: a9213974cc427d044fb038890e20a41ce08ef010
     changeNotes: Updated email canonicalization logic
   - sha: 24fc5c23e3a92873e8f75f34ed7c1b2514cf57ca
