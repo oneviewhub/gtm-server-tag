@@ -99,8 +99,8 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ## 🏷️ Changelog
 
-### v2.2.0
-- Added `WEBAPP` event type
+### v2.3.0
+- Updated `User-Agent` field
 
 ### v2.1.1
 - Updated email canonicalization logic

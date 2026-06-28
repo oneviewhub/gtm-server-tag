@@ -70,10 +70,6 @@ ___TEMPLATE_PARAMETERS___
             "displayValue": "Web"
           },
           {
-            "value": "WEBAPP",
-            "displayValue": "Web App"
-          },
-          {
             "value": "SERVER",
             "displayValue": "Server"
           }
@@ -134,11 +130,6 @@ ___TEMPLATE_PARAMETERS___
                 "paramName": "eventSource",
                 "paramValue": "WEB",
                 "type": "EQUALS"
-              },
-              {
-                "paramName": "eventSource",
-                "paramValue": "WEBAPP",
-                "type": "EQUALS"
               }
             ],
             "valueValidators": [
@@ -156,11 +147,6 @@ ___TEMPLATE_PARAMETERS___
               {
                 "paramName": "eventSource",
                 "paramValue": "WEB",
-                "type": "EQUALS"
-              },
-              {
-                "paramName": "eventSource",
-                "paramValue": "WEBAPP",
                 "type": "EQUALS"
               }
             ],
@@ -180,11 +166,6 @@ ___TEMPLATE_PARAMETERS___
                 "paramName": "eventSource",
                 "paramValue": "WEB",
                 "type": "EQUALS"
-              },
-              {
-                "paramName": "eventSource",
-                "paramValue": "WEBAPP",
-                "type": "EQUALS"
               }
             ],
             "valueValidators": [
@@ -198,11 +179,6 @@ ___TEMPLATE_PARAMETERS___
           {
             "paramName": "eventSource",
             "paramValue": "WEB",
-            "type": "EQUALS"
-          },
-          {
-            "paramName": "eventSource",
-            "paramValue": "WEBAPP",
             "type": "EQUALS"
           }
         ]
@@ -269,11 +245,6 @@ ___TEMPLATE_PARAMETERS___
           {
             "paramName": "eventSource",
             "paramValue": "WEB",
-            "type": "EQUALS"
-          },
-          {
-            "paramName": "eventSource",
-            "paramValue": "WEBAPP",
             "type": "EQUALS"
           },
           {
@@ -396,6 +367,8 @@ const SHA256_REGEX = createRegex('^[a-fA-F0-9]{64}$', '');
 
 const ENDPOINT = 'https://api.oneviewhub.com/v1/events';
 const API_VERSION = '2026-05-11';
+const TEMPLATE_VERSION = '2.3.0';
+const USER_AGENT = 'sGTM/' + TEMPLATE_VERSION;
 const TIMEOUT_MS = 1500;
 const OMIT_PLAINTEXT_PII = true;
 
@@ -419,7 +392,7 @@ var eventSource = makeString(data.eventSource);
 var eventData = getAllEventData();
 
 
-if (eventSource === 'WEB' || eventSource === 'WEBAPP') {
+if (eventSource === 'WEB') {
 	if (data.clientId) eventData.client_id = makeString(data.clientId);
 	if (data.sessionId) eventData.session_id = makeString(data.sessionId);
 	if (data.pageLocation) eventData.page_location = makeString(data.pageLocation);
@@ -545,6 +518,7 @@ sendHttpRequest(
 			'Content-Type': 'application/json',
 			'Authorization': 'Bearer ' + makeString(data.apiKey),
 			'API-Version': API_VERSION,
+			'User-Agent': USER_AGENT,
 		},
 		method: 'POST',
 		timeout: TIMEOUT_MS,
